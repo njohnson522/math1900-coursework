@@ -1,0 +1,99 @@
+Math 1900 HW4 Johnson
+ 
+Problem 1-
+/*Graham Johnson
+Math 1900 HW4 */
+
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+int main()
+{
+
+	cout << "Hello There! I need some information from you..." << endl;
+    char f_initial;
+	cout << "Enter your first initial: ";
+	cin >> f_initial;
+
+	string l_name;
+	cout << "Please enter your last name: ";
+	cin >> l_name;
+	 
+	int fav_number;
+	cout << "What is your favorite number?";
+	cin >> fav_number;
+	cout << "Username: " << f_initial+l_name+to_string(fav_number) << endl;
+
+	return 0;
+
+}
+
+Problem 2
+/*Graham Johnson
+Math 1900 HW4 */
+#include <iostream>
+#include <string>
+using namespace std;
+//Will be using getline to ask and answer questions
+
+int main()
+{
+    string question_1;
+    string answer_1;
+    string Enter;
+
+    cout << "Enter a question: ";
+    getline(cin, question_1);
+
+    cout << "Enter the answer: ";
+    getline(cin, answer_1);
+
+    cout << "Question: " << question_1 << endl;
+
+    cout << "Press Enter to reveal the answer...";
+    getline(cin, Enter);
+
+    cout << "Answer: " << answer_1 << endl;
+
+    return 0;
+}
+
+Problem 3
+/*Graham Johnson
+Math 1900 HW4 */
+#include <iostream>
+#include <string>
+using namespace std;
+//finding midpoints of coordinates 
+
+int main()
+{
+    string name;
+    double x1, y1, x2, y2;
+    double midpoint_x, midpoint_y;
+
+    cout << "Enter your name: ";
+    getline(cin, name);
+
+    cout << "Enter x1: ";
+    cin >> x1;
+
+    cout << "Enter y1: ";
+    cin >> y1;
+
+    cout << "Enter x2: ";
+    cin >> x2;
+
+    cout << "Enter y2: ";
+    cin >> y2;
+
+    midpoint_x = (x1 + x2) / 2;
+    midpoint_y = (y1 + y2) / 2;
+
+    cout << "\n" << name << ", the midpoint is: ("
+        << midpoint_x << ", " << midpoint_y << ")" << endl;
+
+    return 0;
+}
