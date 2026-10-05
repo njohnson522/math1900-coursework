@@ -1,0 +1,91 @@
+Math 1900 HW5
+Problem 1
+/*Graham Johnson
+Math1900 HW5*/
+#include<iostream>
+
+using namespace std;
+int main()
+{
+	double voltage = 5.9;
+
+	bool isSafe = (voltage <= 5.0);
+	cout << isSafe << endl;
+
+	if (voltage > 5.0) {
+		cout << "Overvoltage Warning!";
+	}
+	else if (voltage <= 5.0) {
+		cout << "Voltage within range";
+	}
+	return 0;
+}
+
+Problem 2
+/*Graham Johnson
+Math1900 HW5*/
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    double measured;
+    double rated;
+
+    cout << "Enter the measured resistance: ";
+    cin >> measured;
+
+    cout << "Enter the rated resistance: ";
+    cin >> rated;
+
+    double low = rated - (rated * 0.05);
+    double high = rated + (rated * 0.05);
+
+    if (measured >= low && measured <= high)
+    {
+        cout << "The resistor is within tolerance." << endl;
+    }
+    else
+    {
+        cout << "The resistor is out of tolerance." << endl;
+    }
+
+    return 0;
+}
+
+Problem 3
+/*Graham Johnson
+Math1900 HW5*/
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int score;
+
+    cout << "Enter a score (0 to 100): ";
+    cin >> score;
+
+    if (score >= 90)
+    {
+        cout << "Grade: A" << endl;
+    }
+    else if (score >= 80)
+    {
+        cout << "Grade: B" << endl;
+    }
+    else if (score >= 70)
+    {
+        cout << "Grade: C" << endl;
+    }
+    else if (score >= 60)
+    {
+        cout << "Grade: D" << endl;
+    }
+    else
+    {
+        cout << "Grade: F" << endl;
+    }
+
+    return 0;
+}
