@@ -1,0 +1,108 @@
+Math 1900 HW6 Johnson
+Problem 1
+// Math 1900 HW6 Johnson
+//
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    string password;
+    int count = 0;
+
+    cout << "Enter a 5 character password: ";
+    cin >> password;
+
+    while (count < 5)
+    {
+        cout << "Character " << count + 1 << ": " << password[count] << endl;
+        count++;
+    }
+
+    return 0;
+}
+Problem 2
+// Math 1900 HW6 Johnson
+//
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int secretNumber;
+    int guess;
+    int count = 0;
+
+    cout << "Enter the secret number (1-10): ";
+    cin >> secretNumber;
+
+    cout << "Guess the number: ";
+    cin >> guess;
+    count++;
+
+    while (guess != secretNumber)
+    {
+        cout << "Guess the number: ";
+        cin >> guess;
+        count++;
+    }
+
+    cout << "You got it in " << count << " guesses!" << endl;
+
+    return 0;
+}
+
+Problem 3
+// Math 1900 HW6 Johnson
+//
+#include <iostream>
+#include <string>
+#include <fstream>
+
+using namespace std;
+
+int main()
+{
+    string password;
+    string guess;
+    int count = 0;
+
+    cout << "Enter a 5 character password: ";
+    cin >> password;
+
+    ofstream attempts("attempts.txt");
+
+    cout << "Attempt " << count + 1 << ", enter password: ";
+    cin >> guess;
+    count++;
+
+    while (guess != password && count < 3)
+    {
+        attempts << guess << endl;
+
+        cout << "Incorrect." << endl;
+        cout << "Attempt " << count + 1 << ", enter password: ";
+        cin >> guess;
+        count++;
+    }
+
+    if (guess == password)
+    {
+        cout << "Correct! Password guessed." << endl;
+    }
+    else
+    {
+        attempts << guess << endl;
+        cout << "Incorrect." << endl;
+        cout << "You have used all 3 attempts." << endl;
+    }
+
+    attempts.close();
+
+    return 0;
+}
+
