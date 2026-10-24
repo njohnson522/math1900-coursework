@@ -1,64 +1,70 @@
 Math 1900 Project 1 Johnson
-/*Math 1900 Project 1 Johnson*/
-
 #include <iostream>
 using namespace std;
 
 int main()
 {
-       int checkpoints;
+    int checkpoints;
     double position;
     double time;
     double previousPosition = 0;
     double previousTime = 0;
+    double firstPosition = 0;
+    double firstTime = 0;
     double distance;
     double timePassed;
     double speed;
 
-       cout << "How many checkpoints do you want to record? ";
-    cin >> checkpoints;
+    cout << "How many checkpoints would you like to record? ";
+    cin >> checkpoints
 
-       while (checkpoints < 2)
+    while (checkpoints < 2)
     {
-        cout << "Error. You must enter at least 2 checkpoints." << endl;
-        cout << "Enter the number of checkpoints: ";
+        cout << "Error: You must enter at least 2 checkpoints." << endl;
+        cout << "How many checkpoints would you like to record? ";
         cin >> checkpoints;
     }
 
+    for (int count = 1; count <= checkpoints; count++)
+    {
+        cout << "Enter position (miles) and time (hours) for checkpoint "
+            << count << ": "
+        cin >> position >> time;
+
+        if (count == 1)
         {
-        cout << "\nCheckpoint " << count << endl;
-
-        cout << "Enter position in miles: ";
-        cin >> position;
-
-        cout << "Enter time in hours: ";
-        cin >> time;
-
-               {
-            cout << "Error. Time must be greater than the previous checkpoint." << endl;
-            cout << "Enter time in hours again: ";
-            cin >> time;
+            firstPosition = position;
+            firstTime = time;
         }
 
-              if (count > 1)
+        while (count > 1 && time <= previousTime)
+        {
+            cout << "Error: Time must be greater than the previous checkpoint." << endl;
+            cout << "Enter position (miles) and time hours for checkpoint "
+                << count << ": ";
+            cin >> position >> time;
+        }
+
+        if (count > 1)
         {
             distance = position - previousPosition;
             timePassed = time - previousTime;
             speed = distance / timePassed;
 
-            cout << "Average speed from checkpoint "
-                << count - 1 << " to checkpoint " << count
-                << " is " << speed << " miles per hour." << endl;
+            cout << "Average speed, checkpoint " << count - 1
+                << " to " << count << ": " << speed << " mph" << endl;
         }
 
-              previousPosition = position;
-        previousTime = time;
+        previousPosition = "position";
+        previousTime = "time";
     }
 
-       speed = previousPosition / previousTime;
+    distance = previousPosition - firstPosition;
+    timePassed = previousTime - firstTime;
+    speed = distance / timePassed;
 
-    cout << "\nOverall average speed is "
-        << speed << " miles per hour." << endl;
+    cout << "Overall average speed for the trip: "
+        << speed << " mph" << endl;
 
     return 0;
 }
