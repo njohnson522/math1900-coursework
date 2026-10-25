@@ -16,7 +16,7 @@ int main()
     double speed;
 
     cout << "How many checkpoints would you like to record? ";
-    cin >> checkpoints
+    cin >> checkpoints;
 
     while (checkpoints < 2)
     {
@@ -28,7 +28,7 @@ int main()
     for (int count = 1; count <= checkpoints; count++)
     {
         cout << "Enter position (miles) and time (hours) for checkpoint "
-            << count << ": "
+            << count << ": ";
         cin >> position >> time;
 
         if (count == 1)
@@ -40,7 +40,7 @@ int main()
         while (count > 1 && time <= previousTime)
         {
             cout << "Error: Time must be greater than the previous checkpoint." << endl;
-            cout << "Enter position (miles) and time hours for checkpoint "
+            cout << "Enter position (miles) and time (hours) for checkpoint "
                 << count << ": ";
             cin >> position >> time;
         }
@@ -55,8 +55,8 @@ int main()
                 << " to " << count << ": " << speed << " mph" << endl;
         }
 
-        previousPosition = "position";
-        previousTime = "time";
+        previousPosition = position;
+        previousTime = time;
     }
 
     distance = previousPosition - firstPosition;
