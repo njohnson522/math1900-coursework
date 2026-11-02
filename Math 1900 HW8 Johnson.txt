@@ -2,7 +2,6 @@ Math 1900 HW8 Johnson
 Problem 1
 // Math 1900 HW8 Johnson
 //
-
 #include <iostream>
 using namespace std;
 
