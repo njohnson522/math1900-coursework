@@ -1,0 +1,76 @@
+Math 1900 HW8 Johnson
+Problem 1
+// Math 1900 HW8 Johnson
+//
+
+#include <iostream>
+using namespace std;
+
+double product(double num1, double num2) {
+    return num1 * num2;
+}
+
+int main() {
+    double number1, number2;
+
+    for (int i = 1; i <= 5; i++) {
+        cout << "Enter two numbers: ";
+        cin >> number1 >> number2;
+
+        cout << "The product is: " << product(number1, number2) << endl;
+    }
+
+    return 0;
+}
+Problem 2
+#include <iostream>
+using namespace std;
+
+const double PI = 3.14159;
+
+double cylinderVolume(double radius, double height) {
+    return PI * radius * radius * height;
+}
+
+int main() {
+    double radius, height;
+
+    cout << "Enter the radius and height: ";
+    cin >> radius >> height;
+
+    cout << "The volume of the cylinder is: "
+        << cylinderVolume(radius, height) << endl;
+
+    return 0;
+}
+
+Problem 3
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Function prototype
+string checkPassphrase(string attempt);
+
+int main() {
+    string attempt;
+
+    cout << "Enter the passphrase: ";
+    getline(cin, attempt);
+
+    cout << checkPassphrase(attempt) << endl;
+
+    return 0;
+}
+
+// Function definition
+string checkPassphrase(string attempt) {
+    string secret = "blue ocean";
+
+    if (attempt == secret) {
+        return "correct";
+    }
+    else {
+        return "incorrect";
+    }
+}
