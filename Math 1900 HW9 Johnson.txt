@@ -34,6 +34,32 @@ int main() {
 
     return 0;
 }
+Problem 2
+// Math 1900 HW9 Johnson
+// Plan,Goal
+// Create a program that allows a user to enter 3 values and them display them back
+//1. declare int size and double numbers with the array
+//2. create a for loop that gathers the 3 doubles from user for array
+//3. create for loop that displays each number of array built by user
+#include <iostream>
+using namespace std;
 
+int main() {
 
-Test 3: Prices {5.50, 8.25, 11.85}, quantities {2, 4, 8}	138.80	138.80
+    const int SIZE = 3;
+    double numbers[SIZE];
+
+    for (int i = 0; i < SIZE; i++) {
+        cout << "Enter a number: ";
+        cin >> numbers[i];
+    }
+
+    for (int i = 0; i < SIZE; i++) {
+        cout << numbers[i] << " ";
+    }
+
+    cout << endl;
+
+    return 0;
+}
+
