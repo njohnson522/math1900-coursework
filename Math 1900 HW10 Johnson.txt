@@ -1,0 +1,199 @@
+Math 1900 HW10 Johnson
+
+Problem 1
+// Math 1900 HW10 Johnson
+//1.Create constants for the number of rows(3) and columns(4).
+//2.Declare a 2D array with the 12 given numbers arranged in 3 rows and 4 columns.
+//3.Use nested for loops to go through the array and print the numbers in a table.Use setw() to line up the columns.
+//4.Use another set of nested for loops to calculate the total of each row.Reset the total to 0 for each new row.
+//5.Print each row's total.
+//6.Use another set of nested for loops to calculate the total of each column.Reset the total to 0 for each new column.
+//7.Print each column's total.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+
+    const int ROWS = 3;
+    const int COLS = 4;
+
+    int numbers[ROWS][COLS] = {
+        {1, 2, 3, 4},
+        {2, 4, 6, 8},
+        {3, 6, 9, 12}
+    };
+
+    cout << "Table:" << endl;
+
+    for (int row = 0; row < ROWS; row++) {
+        for (int col = 0; col < COLS; col++) {
+            cout << setw(5) << numbers[row][col];
+        }
+        cout << endl;
+    }
+
+    cout << "\nRow Totals:" << endl;
+
+    for (int row = 0; row < ROWS; row++) {
+        int total = 0;
+
+        for (int col = 0; col < COLS; col++) {
+            total += numbers[row][col];
+        }
+
+        cout << "Row " << row + 1 << ": " << total << endl;
+    }
+
+    cout << "\nColumn Totals:" << endl;
+
+    for (int col = 0; col < COLS; col++) {
+        int total = 0;
+
+        for (int row = 0; row < ROWS; row++) {
+            total += numbers[row][col];
+        }
+
+        cout << "Column " << col + 1 << ": " << total << endl;
+    }
+
+    return 0;
+}
+
+Test Attempt	What to Test	Expected Result	                                          Pass/Fail
+1	Print the 2D array	All 3 rows and 4 columns display correctly and line up.	    pass
+2	Calculate row totals	Row 1 = 10, Row 2 = 20, Row 3 = 30.	                    pass
+3	Calculate column totals	Column 1 = 6, Column 2 = 12, Column 3 = 18, Column 4 = 24.  pass
+
+Problem 2
+// Math 1900 HW10 Johnson
+//1. Create constants above main() for the number of students(2) and quizzes(3).
+//2. Write the function prototype for rowAverage above main().
+//3. Create a 2D array of doubles with 2 rows and 3 columns to store the quiz scores.
+//4. Use nested for loops to ask the user to enter all six quiz scores into the array.
+//5. Use a for loop to go through each student and call the rowAverage function to calculate and print their average.
+//6. Use nested for loops to calculate the average score for each quiz(column).
+//7. Print the average for each quiz.
+//8. Write the rowAverage function below main().Have it add the scores in the selected row, divide by the number of quizzes, and return the average.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+const int STUDENTS = 2;
+const int QUIZZES = 3;
+
+double rowAverage(double scores[STUDENTS][QUIZZES], int row);
+
+int main() {
+
+    double scores[STUDENTS][QUIZZES];
+
+    for (int row = 0; row < STUDENTS; row++) {
+        for (int col = 0; col < QUIZZES; col++) {
+            cout << "Enter score for Student " << row + 1;
+            cout << ", Quiz " << col + 1 << ": ";
+            cin >> scores[row][col];
+        }
+    }
+
+    cout << fixed << setprecision(2);
+
+    cout << "\nStudent Averages:" << endl;
+
+    for (int row = 0; row < STUDENTS; row++) {
+        cout << "Student " << row + 1 << ": ";
+        cout << rowAverage(scores, row) << endl;
+    }
+
+    cout << "\nQuiz Averages:" << endl;
+
+    for (int col = 0; col < QUIZZES; col++) {
+        double total = 0;
+
+        for (int row = 0; row < STUDENTS; row++) {
+            total += scores[row][col];
+        }
+
+        cout << "Quiz " << col + 1 << ": ";
+        cout << total / STUDENTS << endl;
+    }
+
+    return 0;
+}
+
+double rowAverage(double scores[STUDENTS][QUIZZES], int row) {
+
+    double total = 0;
+
+    for (int col = 0; col < QUIZZES; col++) {
+        total += scores[row][col];
+    }
+
+    return total / QUIZZES;
+}
+
+Test Attempt	What to Test	Expected Result	                                                                                                 Pass/Fail
+1	Student 1 scores: 80, 90, 100. Student 2 scores: 70, 80, 90.	Student 1 average = 90.00. Student 2 average = 80.00.	                   Pass
+                                                                                                                                                     
+2	Check the average of each quiz using the same scores.	Quiz 1 = 75.00. Quiz 2 = 85.00. Quiz 3 = 95.00.	                                    Pass
+3	Enter decimal scores: Student 1: 85.5, 90.5, 95.5. Student 2: 75.5, 80.5, 85.5.	Student 1 = 90.50. Student 2 = 80.50. Quiz 1 = 80.50. Quiz 2 = 85.50. Quiz 3 = 90.50.		                                                                                                                    Pass
+
+Problem 3
+// Math 1900 HW10 Johnson
+//1.Create constants for the number of rows(10) and columns(10).
+//2.Declare a 2D character array with 10 rows and 10 columns.
+//3.Use nested for loops to fill every position in the array with a.character.
+//4.Use nested for loops to display the original plot with spaces between each character.
+//5.Create two integer variables named x and y.
+//6.Ask the user to enter an x - coordinate and a y - coordinate between 0 and 9.
+//7.Change the selected position in the array to * using the y - coordinate for the row and the x - coordinate for the column.
+//8.Use another set of nested for loops to display the updated plot with the marked point.
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    const int ROWS = 10;
+    const int COLS = 10;
+
+    char plot[ROWS][COLS];
+
+    for (int row = 0; row < ROWS; row++) {
+        for (int col = 0; col < COLS; col++) {
+            plot[row][col] = '.';
+        }
+    }
+    cout << "Original Plot:" << endl;
+
+    for (int row = 0; row < ROWS; row++) {
+        for (int col = 0; col < COLS; col++) {
+            cout << plot[row][col] << " ";
+        }
+        cout << endl;
+    }
+
+    int x, y;
+
+    cout << "\nEnter x coordinate (0-9): ";
+    cin >> x;
+
+    cout << "Enter y coordinate (0-9): ";
+    cin >> y;
+
+    plot[y][x] = '*';
+
+    cout << "\nUpdated Plot:" << endl;
+
+    for (int row = 0; row < ROWS; row++) {
+        for (int col = 0; col < COLS; col++) {
+            cout << plot[row][col] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+Test Attempt	What to Test	Expected Result	                                       Pass/Fail
+1	Enter x = 3, y = 2.	The * appears in column 3, row 2.	                  pass
+2	Enter x = 0, y = 0.	The * appears in the top-left corner of the plot.         pass	
+3	Enter x = 9, y = 9.	The * appears in the bottom-right corner of the plot.	  pass
