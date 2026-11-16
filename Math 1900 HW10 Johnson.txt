@@ -182,7 +182,14 @@ cin >> numPoints;
 
     cout << "Enter y coordinate (0-9): ";
     cin >> y;
+for (int count = 1; count < numPoints; count++) {
 
+    cout << "\nEnter x coordinate (0-9): ";
+    cin >> x;
+
+    cout << "Enter y coordinate (0-9): ";
+    cin >> y;
+}
     plot[y][x] = '*';
 
     cout << "\nUpdated Plot:" << endl;
