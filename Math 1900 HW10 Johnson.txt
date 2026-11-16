@@ -200,7 +200,7 @@ for (int count = 1; count < numPoints; count++) {
         }
         cout << endl;
     }
-
+plot[y][x] = '*';
     return 0;
 }
 Test Attempt	What to Test	Expected Result	                                       Pass/Fail
