@@ -171,7 +171,10 @@ int main() {
         }
         cout << endl;
     }
+int numPoints;
 
+cout << "\nHow many points do you want to plot? ";
+cin >> numPoints;
     int x, y;
 
     cout << "\nEnter x coordinate (0-9): ";
