@@ -171,7 +171,10 @@ int main() {
         }
         cout << endl;
     }
+int numPoints;
 
+cout << "\nHow many points do you want to plot? ";
+cin >> numPoints;
     int x, y;
 
     cout << "\nEnter x coordinate (0-9): ";
@@ -179,7 +182,14 @@ int main() {
 
     cout << "Enter y coordinate (0-9): ";
     cin >> y;
+for (int count = 1; count < numPoints; count++) {
 
+    cout << "\nEnter x coordinate (0-9): ";
+    cin >> x;
+
+    cout << "Enter y coordinate (0-9): ";
+    cin >> y;
+}
     plot[y][x] = '*';
 
     cout << "\nUpdated Plot:" << endl;
@@ -190,7 +200,7 @@ int main() {
         }
         cout << endl;
     }
-
+plot[y][x] = '*';
     return 0;
 }
 Test Attempt	What to Test	Expected Result	                                       Pass/Fail
